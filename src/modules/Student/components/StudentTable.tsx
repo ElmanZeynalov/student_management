@@ -1,3 +1,4 @@
+'use client';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -6,13 +7,17 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import TableBody from '@mui/material/TableBody';
 import * as React from 'react';
+import { IStudent } from '../types/student';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/redux/store';
 
-
-interface StudentTableProps {
-    value: 
+interface IStudentTableProps {
+	value: IStudent[];
 }
 
-export const StudentTable = () => {
+export const StudentTable = ({ value }: IStudentTableProps) => {
+	const students = useSelector((state: RootState) => state.students) as IStudent[];
+
 	return (
 		<TableContainer component={Paper}>
 			<Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -26,7 +31,7 @@ export const StudentTable = () => {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{STUDENT_DATA.map((student) => (
+					{students.map((student) => (
 						<TableRow key={student.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
 							<TableCell align="right">{student.name}</TableCell>
 							<TableCell align="right">{student.surname}</TableCell>

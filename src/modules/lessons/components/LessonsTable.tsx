@@ -9,13 +9,11 @@ import TableBody from '@mui/material/TableBody';
 import * as React from 'react';
 import { ILesson } from '../types/lesson';
 import { useSelector } from 'react-redux';
-import { RootState } from '@reduxjs/toolkit/query';
+import { RootState } from '@/redux/store';
 
-interface ILessonTableProps {
-	value: ILesson[];
-}
+export const LessonsTable = () => {
+	const lessons = useSelector((state: RootState) => state.lessons.lessons) as ILesson[];
 
-export const LessonsTable = ({ value }: ILessonTableProps) => {
 	return (
 		<TableContainer component={Paper}>
 			<Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -29,7 +27,7 @@ export const LessonsTable = ({ value }: ILessonTableProps) => {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{value.map((lesson) => (
+					{lessons.map((lesson) => (
 						<TableRow key={lesson.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
 							<TableCell align="right">{lesson.lessonName}</TableCell>
 							<TableCell align="right">{lesson.teacherName}</TableCell>

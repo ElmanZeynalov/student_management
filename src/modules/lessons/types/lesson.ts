@@ -1,4 +1,4 @@
-export interface Ilesson {
+export interface ILesson {
 	id: number;
 	lessonName: string;
 	teacherName: string;

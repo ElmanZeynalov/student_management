@@ -2,11 +2,15 @@
 
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import { FormEvent } from 'react';
+import React, { FormEvent, useState } from 'react';
+import { addStudent } from '@/redux/studentsSlice';
+
+import { useDispatch, useSelector } from 'react-redux';
+import Dialog from '@mui/material/Dialog';
+import { IStudent } from '@/modules/Student/types/student';
 
 interface StudentFormDialogProps {
 	isOpen: boolean;
@@ -14,6 +18,8 @@ interface StudentFormDialogProps {
 }
 
 export default function StudentFormDialog({ isOpen, onClose: handleClose }: StudentFormDialogProps) {
+	const dispatch = useDispatch();
+
 	return (
 		<Dialog
 			open={isOpen}
@@ -23,8 +29,9 @@ export default function StudentFormDialog({ isOpen, onClose: handleClose }: Stud
 				onSubmit: (event: FormEvent<HTMLFormElement>) => {
 					event.preventDefault();
 					const formData = new FormData(event.currentTarget);
-					const formJson = Object.fromEntries((formData as any).entries());
+					const formJson = Object.fromEntries((formData as any).entries()) as IStudent;
 					console.log(formJson, 'Form Data');
+					dispatch(addStudent({ ...formJson, id: new Date().getTime() }));
 					handleClose();
 				},
 			}}
