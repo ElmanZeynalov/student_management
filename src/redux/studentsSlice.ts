@@ -1,14 +1,20 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IStudent } from '../modules/Student/types/student';
 
-const initialState: IStudent[] = [];
+interface StudentState {
+	map(arg0: (student: any) => import('react').JSX.Element): import('react').ReactNode;
+	student: IStudent[];
+}
+const initialState: StudentState = {
+	student: [],
+};
 
 const studentsSlice = createSlice({
 	name: 'students',
 	initialState,
 	reducers: {
 		addStudent: (state, action: PayloadAction<IStudent>) => {
-			state.push(action.payload);
+			state.student.push(action.payload);
 		},
 	},
 });

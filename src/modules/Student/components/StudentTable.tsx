@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
 
 export const StudentTable = () => {
-	const students = useSelector((state: RootState) => state.students) as IStudent[];
+	const students = useSelector((state: RootState) => state.students.student);
 
 	return (
 		<TableContainer component={Paper}>

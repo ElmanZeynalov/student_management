@@ -34,8 +34,8 @@ interface ScoreFormDialogProps {
 
 export default function ScoreFormDialog({ isOpen, onClose: handleClose }: ScoreFormDialogProps) {
 	const dispatch = useDispatch();
-	const students = useSelector((state: RootState) => state.students) as IStudent[];
-	const lessons = useSelector((state: RootState) => state.lessons.lessons) as ILesson[];
+	const students = useSelector((state: RootState) => state.students.student);
+	const lessons = useSelector((state: RootState) => state.lessons.lessons);
 
 	const [selectedLesson, setSelectedLesson] = useState<string>('');
 
