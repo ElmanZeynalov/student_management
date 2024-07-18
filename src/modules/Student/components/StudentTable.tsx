@@ -11,11 +11,7 @@ import { IStudent } from '../types/student';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
 
-interface IStudentTableProps {
-	value: IStudent[];
-}
-
-export const StudentTable = ({ value }: IStudentTableProps) => {
+export const StudentTable = () => {
 	const students = useSelector((state: RootState) => state.students) as IStudent[];
 
 	return (
