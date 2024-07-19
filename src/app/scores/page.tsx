@@ -2,9 +2,7 @@
 
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-
 import { useDialog } from '@/hooks/useDialog';
-
 import { ScoreTable } from '@/modules/scores/components/ScoreTable';
 import ScoreFormDialog from '@/modules/scores/components/ScoreFormDialog';
 

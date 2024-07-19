@@ -7,8 +7,6 @@ import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
 import { addLesson } from '@/redux/lessonsSlice';
-import { IStudent } from '@/modules/Student/types/student';
-import { addStudent } from '@/redux/studentsSlice';
 import { ILesson } from '@/modules/lessons/types/lesson';
 
 interface LessonFormDialogProps {

@@ -7,12 +7,11 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import TableBody from '@mui/material/TableBody';
 import * as React from 'react';
-import { IStudent } from '../types/student';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/redux/store';
+import {useStudentData} from "@/hooks/useStudentData";
 
 export const StudentTable = () => {
-	const students = useSelector((state: RootState) => state.students.student);
+
+	const students = useStudentData();
 
 	return (
 		<TableContainer component={Paper}>

@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { CustomLink } from '@/components/CustomLink';
-import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 
 export default function ApplicationHeader() {
@@ -19,7 +18,7 @@ export default function ApplicationHeader() {
 					</IconButton>
 
 					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-						Student Managment
+						Student Management
 					</Typography>
 
 					<Stack

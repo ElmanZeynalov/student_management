@@ -7,12 +7,10 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import TableBody from '@mui/material/TableBody';
 import * as React from 'react';
-import { ILesson } from '../types/lesson';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/redux/store';
+import { useLessonsData } from '@/hooks/useLessonData';
 
 export const LessonsTable = () => {
-	const lessons = useSelector((state: RootState) => state.lessons.lessons) as ILesson[];
+	const lessons = useLessonsData();
 
 	return (
 		<TableContainer component={Paper}>
